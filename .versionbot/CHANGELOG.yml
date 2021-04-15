@@ -1,4 +1,23 @@
 - commits:
+    - subject: Lock destination layers while delta is being processed
+      hash: 020fe89edad860b1d36234636071728252bf0644
+      body: |
+        During fingerpinting of the source image the destination layers are not
+        exepmt from being released (e.g. when `balena image rm <iid>`) is run
+        simultaneously.
+        Similarly when processing the destination layers to generate deltas we
+        only hold one reference at a time, leaving the subsequent layers
+        vulnerable to the same issues.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Robert Günzler <robertg@balena.io>
+        signed-off-by: Robert Günzler <robertg@balena.io>
+      author: Robert Günzler
+      nested: []
+  version: 19.03.19
+  date: 2021-04-15T15:17:29.139Z
+- commits:
     - subject: Add aufs to overlay2 migrator
       hash: b3a976b1294469e75222752bdc1fdc06bfcc97b8
       body: |
